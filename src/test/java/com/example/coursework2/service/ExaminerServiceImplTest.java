@@ -17,11 +17,13 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class ExaminerServiceImplTest {
-    private ExaminerServiceImpl examinerService;
     List<Question> list = new ArrayList<>(List.of());
+
+    @InjectMocks
+    private ExaminerServiceImpl examinerService;
+
+    @Mock
     private JavaQuestionService javaQuestionService;
-
-
     @BeforeEach
     void setUp() {
         Question question = new Question("int какого типа?", "Приметанного");

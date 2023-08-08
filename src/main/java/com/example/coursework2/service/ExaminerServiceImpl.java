@@ -17,7 +17,7 @@ public class ExaminerServiceImpl implements  ExaminerService {
     public List<Question> getQuestions(int amount) {
         if (amount <= questionService.getAll().size()) {
             List<Question> randomList = new ArrayList<>(List.of());
-            for (int i = 0; i <= amount; i++) {
+            for (int i = 0; i < amount; i++) {
                 randomList.add(questionService.getRandomQuestion());
             }
             return randomList;
