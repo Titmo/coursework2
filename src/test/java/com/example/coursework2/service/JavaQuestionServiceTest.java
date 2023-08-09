@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class JavaQuestionServiceTest {
     private final JavaQuestionService javaQuestionService=new JavaQuestionService();
         List<Question> questions=new ArrayList<>(List.of(
+                new Question("int какого типа переменная?","Целочисленная"),
                 new Question("int какого типа?","Приметанного")
         ));
 
@@ -57,8 +58,8 @@ class JavaQuestionServiceTest {
 
     @Test
     void remove() {
-        String question="int какого типа?";
-        String answer="Приметанного";
+        String question="int какого типа переменная?";
+        String answer="Целочисленная";
         Question question1 =new Question(question,answer);
 
        Question ex= javaQuestionService.remove(question1);
