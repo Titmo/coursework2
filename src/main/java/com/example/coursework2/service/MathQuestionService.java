@@ -1,48 +1,47 @@
 package com.example.coursework2.service;
 
 import com.example.coursework2.Question;
+import com.example.coursework2.repository.MathQuestionRepository;
 import com.example.coursework2.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-@Service
-public class JavaQuestionService implements QuestionService {
-    private final QuestionRepository javaQuestionRepository;
+@Repository
+public class MathQuestionService implements QuestionService {
+    private final QuestionRepository mathQuestionRepository;
 
-    public JavaQuestionService(@Qualifier("javaQuestionRepository") QuestionRepository javaQuestionRepository) {
-        this.javaQuestionRepository = javaQuestionRepository;
+    public MathQuestionService(@Qualifier("mathQuestionRepository") QuestionRepository mathQuestionRepository) {
+        this.mathQuestionRepository = mathQuestionRepository;
     }
-
-    private Random random;
 
     @Override
     public Question add(String question, String answer) {
-        return javaQuestionRepository.add(question,answer);
+        return mathQuestionRepository.add(question, answer);
     }
+
 
     @Override
     public Question add(Question question) {
-//        question.getQuestion()
-//        javaList.add(question);
+//        mathList.add(question);
         return question;
     }
 
     @Override
     public Question remove(Question question) {
-       return javaQuestionRepository.remove(question);
+        return mathQuestionRepository.remove(question);
     }
 
     @Override
     public List<Question> getAll() {
-        return javaQuestionRepository.getAll();
+        return mathQuestionRepository.getAll();
     }
 
     @Override
     public Question getRandomQuestion() {
-        this.random = new Random();
+        Random random = new Random();
         int randomInt = random.nextInt(getAll().size());
         return getAll().get(randomInt);
     }

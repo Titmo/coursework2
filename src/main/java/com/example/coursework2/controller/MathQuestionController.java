@@ -2,7 +2,6 @@ package com.example.coursework2.controller;
 
 import com.example.coursework2.Question;
 import com.example.coursework2.repository.QuestionRepository;
-import com.example.coursework2.service.JavaQuestionService;
 import com.example.coursework2.service.QuestionService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,14 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/exam/java")
-public class JavaController {
+@RequestMapping("/exam/math")
+public class MathQuestionController {
     private final QuestionService questionService;
 
-    public JavaController(@Qualifier("javaQuestionRepository") QuestionService questionService) {
+    public MathQuestionController(@Qualifier("mathQuestionRepository") QuestionService questionService) {
         this.questionService = questionService;
     }
-
 
 
     @GetMapping(path = "/add")
@@ -42,3 +40,4 @@ public class JavaController {
     }
 
 }
+

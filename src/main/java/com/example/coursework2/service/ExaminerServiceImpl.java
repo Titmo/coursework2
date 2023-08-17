@@ -1,18 +1,19 @@
 package com.example.coursework2.service;
 
 import com.example.coursework2.Question;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ExaminerServiceImpl implements  ExaminerService {
+public class ExaminerServiceImpl implements ExaminerService {
     private final QuestionService questionService;
-
     public ExaminerServiceImpl(QuestionService questionService) {
         this.questionService = questionService;
     }
+
     @Override
     public List<Question> getQuestions(int amount) {
         if (amount <= questionService.getAll().size()) {
@@ -25,4 +26,5 @@ public class ExaminerServiceImpl implements  ExaminerService {
             throw new ArithmeticException("Вопросов меньше");
         }
     }
+
 }
