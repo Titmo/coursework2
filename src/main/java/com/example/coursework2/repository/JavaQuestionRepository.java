@@ -2,10 +2,11 @@ package com.example.coursework2.repository;
 
 import com.example.coursework2.Question;
 import com.example.coursework2.service.QuestionService;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class JavaQuestionRepository implements QuestionRepository {
     List<Question> javaList = new ArrayList<>(List.of(
             new Question("int какого типа переменная?","Целочисленная"),

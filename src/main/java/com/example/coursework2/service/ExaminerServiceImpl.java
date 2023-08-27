@@ -9,18 +9,18 @@ import java.util.List;
 
 @Service
 public class ExaminerServiceImpl implements ExaminerService {
-    private  final JavaQuestionService javaQuestionService;
+    private  final QuestionService questionService;
 
-    public ExaminerServiceImpl(@Qualifier("JavaQuestionRepository")JavaQuestionService javaQuestionService) {
-        this.javaQuestionService = javaQuestionService;
+    public ExaminerServiceImpl(@Qualifier("javaQuestionService") QuestionService questionService) {
+        this.questionService = questionService;
     }
 
     @Override
     public List<Question> getQuestions(int amount) {
-        if (amount <= javaQuestionService.getAll().size()) {
+        if (amount <= questionService.getAll().size()) {
             List<Question> randomList = new ArrayList<>(List.of());
             for (int i = 0; i < amount; i++) {
-                randomList.add(javaQuestionService.getRandomQuestion());
+                randomList.add(questionService.getRandomQuestion());
             }
             return randomList;
         } else {

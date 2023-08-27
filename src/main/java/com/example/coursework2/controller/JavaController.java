@@ -17,11 +17,9 @@ import java.util.List;
 public class JavaController {
     private final QuestionService questionService;
 
-    public JavaController(@Qualifier("javaQuestionRepository") QuestionService questionService) {
+    public JavaController(@Qualifier("javaQuestionService") QuestionService questionService) {
         this.questionService = questionService;
     }
-
-
 
     @GetMapping(path = "/add")
     public Question add(@RequestParam String question,

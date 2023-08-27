@@ -16,7 +16,7 @@ import java.util.List;
 public class MathQuestionController {
     private final QuestionService questionService;
 
-    public MathQuestionController(@Qualifier("mathQuestionRepository") QuestionService questionService) {
+    public MathQuestionController(@Qualifier("mathQuestionService") QuestionService questionService) {
         this.questionService = questionService;
     }
 
